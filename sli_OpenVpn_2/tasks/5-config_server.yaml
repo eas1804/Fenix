@@ -6,7 +6,7 @@
     line: '{{ item }}'
     create: yes
   loop:
-    - port 1195 
+    - port "{{openvpn_port}}"
     - proto udp 
     - dev tun 
     - ca ca.crt  
@@ -16,6 +16,7 @@
     - key-direction 0
     - cipher AES-256-GCM
     - auth SHA256
+    - client-to-client
     - dh dh.pem
     - user nobody
     - group nogroup
